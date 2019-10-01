@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Poca - Podcast &amp; Audio Template">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>Hylinx | Home</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{url_for('static', filename='images/core-img/favicon.ico')}}">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-thumbnail">
+      <img src="{{url_for('static', filename='images/core-img/preloader.png')}}" alt="">
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+      <div class="classy-nav-container breakpoint-off">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar justify-content-between" id="pocaNav">
+
+          <!-- Logo 
+          <a class="nav-brand" href="/home"><img src="./img/core-img/logo.png" alt=""></a>
+			-->
+			<a href="/home" style="font-size:30px; color:white;"  >Hylinx</a>
+          <!-- Navbar Toggler -->
+          <div class="classy-navbar-toggler">
+            <span class="navbarToggler"><span></span><span></span><span></span></span>
+          </div>
+
+          <!-- Menu -->
+          <div class="classy-menu">
+
+            <!-- Menu Close Button -->
+            <div class="classycloseIcon">
+              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+            </div>
+
+            <!-- Nav Start -->
+            <div class="classynav">
+              <ul id="nav">
+              {% if not g.user%}
+                <li><a href="signin">Sign In</a></li>
+			  {% else %}
+			  	<li><a href="logout">Log Out</a></li>
+			  {% endif%}
+                <li><a href="#">Pages</a>
+                  <ul class="dropdown">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/upload">Upload</a></li>
+                    <li><a href="songs">Songs</a></li>
+					<li><a href="about">About</a></li>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+              <!-- Top Search Area -->
+              <div class="top-search-area">
+                <form action="index.html" method="post">
+                  <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
+                  <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </div>
+
+              <!-- Top Social Area -->
+              <div class="top-social-area">
+                <a href="#" class="fa fa-facebook" aria-hidden="true"></a>
+                <a href="#" class="fa fa-twitter" aria-hidden="true"></a>
+                <a href="#" class="fa fa-pinterest" aria-hidden="true"></a>
+                <a href="#" class="fa fa-instagram" aria-hidden="true"></a>
+                <a href="#" class="fa fa-youtube-play" aria-hidden="true"></a>
+              </div>
+
+            </div>
+            <!-- Nav End -->
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Welcome Area Start ***** -->
+  <section class="welcome-area">
+    <!-- Welcome Slides -->
+    <div class="welcome-slides owl-carousel">
+
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-overlay" style="background-image: url(/static/images/bg-img/1.jpg)">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text">
+                <h2 data-animation="fadeInUp" data-delay="100ms">Download any song</h2>
+                <h5 data-animation="fadeInUp" data-delay="300ms">Search for your favorite song, then download with just one click.</h5>
+                <div class="welcome-btn-group">
+                  <a href="songs" class="btn poca-btn m-2 ml-0 active" data-animation="fadeInUp" style="background-color:#f55656" data-delay="500ms">Download songs.</a>
+                  <a href="#" class="btn poca-btn m-2 " data-animation="fadeInUp" style="background-color:#f55656; color:white;" data-delay="700ms">Trending songs</a>
+                </div>
+              </div>
+              <!-- Welcome Music Area -->
+              <div class="poca-music-area mt-100 d-flex align-items-center flex-wrap" data-animation="fadeInUp" data-delay="900ms">
+                <div class="poca-music-thumbnail">
+                  <img src="{{url_for('static', filename='images/core-img/img.jpg')}}" alt="">
+                </div>
+                <div class="poca-music-content">
+                  <span class="music-published-date">December 9, 2018</span>
+                  <h2>Episode 203 - The Last Blockbuster</h2>
+                  <div class="music-meta-data">
+                    <p>By <a href="#" class="music-author">Admin</a> | <a href="#" class="music-catagory">Tutorials</a> | <a href="#" class="music-duration">00:02:56</a></p>
+                  </div>
+                  <!-- Music Player -->
+                  <div class="poca-music-player">
+                    <audio preload="auto" controls>
+                      <source src="{{url_for('static', filename='audio/dummy-audio.mp3')}}">
+                    </audio>
+                  </div>
+                  <!-- Likes, Share & Download -->
+                  <div class="likes-share-download d-flex align-items-center justify-content-between">
+                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> View </a>
+                    <div>
+                      <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>
+                      <a href="audio/dummy-audio.mp3" Download><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-overlay" style="background-image: url(/static/images/bg-img/2.jpg);">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text">
+                <h2 data-animation="fadeInUp" data-delay="100ms">Are you a musician?</h2>
+                <h5 data-animation="fadeInUp" data-delay="300ms">Let others know you. Upload your songs now, lets showcase your talent.</h5>
+                <div class="welcome-btn-group">
+                  <a href="upload" class="btn poca-btn m-2 ml-0 active" style="background-color:#f55656;" data-animation="fadeInUp" data-delay="500ms">Upload a song</a>
+                  <a href="#" class="btn poca-btn m-2 ml-0 active" data-animation="fadeInUp" style="background-color:#f55656;" data-delay="700ms">Subscribe with RSS</a>
+                </div>
+              </div>
+              <!-- Welcome Music Area -->
+              <div class="poca-music-area mt-100 d-flex align-items-center flex-wrap" data-animation="fadeInUp" data-delay="900ms">
+                <div class="poca-music-thumbnail">
+                  <img src="{{url_for('static', filename='images/core-img/img.jpg')}}" alt="">
+                </div>
+                <div class="poca-music-content">
+                  <span class="music-published-date">December 8, 2018</span>
+                  <h2>Episode 202 - The Last Blockbuster</h2>
+                  <div class="music-meta-data">
+                    <p>By <a href="#" class="music-author">Admin</a> | <a href="#" class="music-catagory">Tutorials</a> | <a href="#" class="music-duration">00:02:56</a></p>
+                  </div>
+                  <!-- Music Player -->
+                  <div class="poca-music-player">
+                    <audio preload="auto" controls>
+                      <source src="{{url_for('static', filename='audio/dummy-audio.mp3')}}">
+                    </audio>
+                  </div>
+                  <!-- Likes, Share & Download -->
+                  <div class="likes-share-download d-flex align-items-center justify-content-between">
+                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> View </a>
+                    <div>
+                      <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>
+                      <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-overlay" style="background-image: url(/static/images/bg-img/3.jpg);">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text">
+                <h2 data-animation="fadeInUp" data-delay="100ms">Discover Today</h2>
+                <h5 data-animation="fadeInUp" data-delay="300ms">Please schedule a podcast post, to make it visible here.</h5>
+                <div class="welcome-btn-group">
+                  <a href="#" class="btn poca-btn m-2 ml-0 active" data-animation="fadeInUp" style="background-color:#f55656" data-delay="500ms">Subscribe with iTunes</a>
+                  <a href="#" class="btn poca-btn m-2 ml-0 active" data-animation="fadeInUp" style="background-color:#f55656" data-delay="700ms">Subscribe with RSS</a>
+                </div>
+              </div>
+              <!-- Welcome Music Area -->
+              <div class="poca-music-area mt-100 d-flex align-items-center flex-wrap" data-animation="fadeInUp" data-delay="900ms">
+                <div class="poca-music-thumbnail">
+                  <img src="{{url_for('static', filename='images/core-img/img.jpg')}}" alt="">
+                </div>
+                <div class="poca-music-content">
+                  <span class="music-published-date">December 7, 2018</span>
+                  <h2>Episode 201 - The Last Blockbuster</h2>
+                  <div class="music-meta-data">
+                    <p>By <a href="#" class="music-author">Admin</a> | <a href="#" class="music-catagory">Tutorials</a> | <a href="#" class="music-duration">00:02:56</a></p>
+                  </div>
+                  <!-- Music Player -->
+                  <div class="poca-music-player">
+                    <audio preload="auto" controls>
+                      <source src="{{url_for('static', filename='audio/dummy-audio.mp3')}}">
+                    </audio>
+                  </div>
+                  <!-- Likes, Share & Download -->
+                  <div class="likes-share-download d-flex align-items-center justify-content-between">
+                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> View </a>
+                    <div>
+                      <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>
+                      <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ***** Welcome Area End ***** -->
+
+  <!-- ***** Latest Episodes Area Start ***** -->
+  <section class="poca-latest-epiosodes section-padding-80">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h2>Hottest Songs</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Menu -->
+    <div class="container">
+      <div class="poca-projects-menu mb-30 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="text-center portfolio-menu">
+          <button class="btn active" data-filter="*">All</button>
+          <button class="btn" data-filter=".reggae">Reggae</button>
+          <button class="btn" data-filter=".hilife">Hip Life</button>
+          <button class="btn" data-filter=".hiplife">Hi Life</button>
+          <button class="btn" data-filter=".dancehall">dancehall</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row poca-portfolio">
+{% for audio in audios%}
+        <!-- Single gallery Item -->
+        <div class="col-12 col-md-6 single_gallery_item {{audio.audio_type}} wow fadeInUp" data-wow-delay="0.2s">
+          <!-- Welcome Music Area -->
+          <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+            <div class="poca-music-thumbnail">
+              <img src="{{url_for('static', filename='images/core-img/img.jpg')}}" alt="">
+            </div>
+            <div class="poca-music-content text-center">
+              <span class="music-published-date mb-2">{{audio.date_added}}</span>
+              <h2 style="overflow-x:scroll;">{{audio.song_title}}</h2>
+              <div class="music-meta-data">
+                <p><a href="#" class="music-author">{{audio.artist_name}}</a></p>
+              </div>
+              <!-- Music Player -->
+              <div class="poca-music-player">
+                <audio preload="auto" controls>
+                  <source src="{{url_for('static', filename='uploads/%s' % audio.file_name)}}">
+                </audio>
+              </div>
+              <!-- Likes, Share & Download -->
+              <div class="likes-share-download d-flex align-items-center justify-content-between">
+                <a href="{{url_for('view',song_id='%s'% audio.id)}}"><i class="fa fa-eye" aria-hidden="true"></i>       View</a>
+                <div>
+                  <a href="whatsapp://send?text=http://127.0.0.1:5000/view/{{audio.id}}" title="share on whatsapp" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>
+                  <a href="{{url_for('static', filename='uploads/%s' % audio.file_name)}}" Download><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+ {% endfor %}
+<!--
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <a href="#" class="btn poca-btn mt-70">Load More</a>
+        </div>
+      </div>
+    </div>
+    -->
+  </section>
+  <!-- ***** Latest Episodes Area End ***** -->
+
+
+  <!-- ***** Newsletter Area Start ***** -->
+  <section class="poca-newsletter-area bg-img bg-overlay pt-50 jarallax" style="background-image: url(static/images/bg-img/15.jpg);">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Newsletter Content -->
+        <div class="col-12 col-lg-6">
+          <div class="newsletter-content mb-50">
+            <h2>Subscribe to daily songs</h2>
+            <h6>Subscribe to receive songs everyday.</h6>
+          </div>
+        </div>
+        <!-- Newsletter Form -->
+        <div class="col-12 col-lg-6">
+          <div class="newsletter-form mb-50">
+            <form action="#" method="post">
+              <input type="email" name="nl-email" class="form-control" placeholder="Your Email">
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Newsletter Area End ***** -->
+
+  <!-- ***** Footer Area Start ***** -->
+  <footer class="footer-area section-padding-80-0">
+    <div class="container">
+      <div class="row">
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-footer-widget mb-80">
+            <!-- Widget Title -->
+            <h4 class="widget-title">About Us</h4>
+
+            <p>It is a long established fact that a reader will be distracted by the readable content.</p>
+            <div class="copywrite-content">
+              <p>&copy; 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-footer-widget mb-80">
+            <!-- Widget Title -->
+            <h4 class="widget-title">Categories</h4>
+
+            <!-- Catagories Nav -->
+            <nav>
+              <ul class="catagories-nav">
+                <li><a href="#">Entrepreneurship</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Tech</a></li>
+                <li><a href="#">Tutorials</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-footer-widget mb-80">
+            <!-- Widget Title -->
+            <h4 class="widget-title">Lastest Songs</h4>
+			{% if new_audios|length >= 2%}
+            <!-- Single Latest Episodes -->
+            <div class="single-latest-episodes">
+              <p class="episodes-date">{{new_audios[-1].date_added}}</p>
+              <a href="view/{{new_audios[-1].id}}" class="episodes-title">{{new_audios[-1].song_title}}</a>
+            </div>
+            <!-- Single Latest Episodes -->
+            <div class="single-latest-episodes">
+              <p class="episodes-date">{{new_audios[-2].date_added}}</p>
+              <a href="view/{{new_audios[-2].id}}" class="episodes-title">{{audios[-2].song_title}}</a>
+            </div>
+          </div>
+        {%else%}
+        <div class="single-latest-episodes">
+        <h4><li class="fa fa-times">No songs Available</li></h4>
+        </div>
+        {% endif%}
+       </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-footer-widget mb-80">
+            <!-- Widget Title -->
+            <h4 class="widget-title">Follow Us</h4>
+            <!-- Social Info -->
+            <div class="footer-social-info">
+              <a href="#" class="facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+              <a href="#" class="instagram" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="youtube" data-toggle="tooltip" data-placement="top" title="YouTube"><i class="fa fa-youtube-play"></i></a>
+            </div>
+            <!-- App Download Button -->
+            <div class="app-download-button mt-30">
+              <a href="#"><img src="{{url_for('static', filename='images/core-img/app-store.png')}}" alt=""></a>
+              <a href="#"><img src="{{url_for('static', filename='images/core-img/google-play.png')}}" alt=""></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  <!-- ***** Footer Area End ***** -->
+
+  <!-- ******* All JS ******* -->
+  <!-- jQuery js -->
+  <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+  <!-- Popper js -->
+  <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+  <!-- Bootstrap js -->
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <!-- All js -->
+  <script src="{{url_for('static', filename='js/poca.bundle.js')}}"></script>
+  <!-- Active js -->
+  <script src="{{url_for('static', filename='js/default-assets/active.js')}}"></script>
+
+</bαody>
+
+</html>

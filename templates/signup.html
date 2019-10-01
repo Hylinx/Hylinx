@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Poca - Podcast &amp; Audio Template">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>Hylinx | Sign Up</title>
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='nw/images/icons/favicon.ico')}}"/>
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nw/vendor/bootstrap/css/bootstrap.min.css')}}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nw/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nw/vendor/animate/animate.css')}}">
+  <!--===============================================================================================-->	
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nw/vendor/css-hamburgers/hamburgers.min.css')}}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nw/vendor/select2/select2.min.css')}}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nw/css/util.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nw/css/main.css')}}">
+  
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{url_for('static', filename='images/core-img/favicon.ico')}}">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-thumbnail">
+      <img src="{{url_for('static', filename='images/core-img/preloader.png')}}" alt="">
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+      <div class="classy-nav-container breakpoint-off">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar justify-content-between" id="pocaNav">
+			<a href="home" style="font-size:30px; color:white;" >Hylinx</a>
+          <!-- Navbar Toggler -->
+          <div class="classy-navbar-toggler">
+            <span class="navbarToggler"><span></span><span></span><span></span></span>
+          </div>
+
+          <!-- Menu -->
+          <div class="classy-menu">
+
+            <!-- Menu Close Button -->
+            <div class="classycloseIcon">
+              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+            </div>
+
+            <!-- Nav Start -->
+            <div class="classynav">
+              <ul id="nav">
+              <li><a href="signin">Sign In</a></li>
+                <li><a href="#">Pages</a>
+                  <ul class="dropdown">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="upload">Upload</a></li>
+					<li><a href="songs">Songs</a></li>
+					<li><a href="about">About</a></li>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+              <!-- Top Search Area -->
+              <div class="top-search-area">
+                <form action="index.html" method="post">
+                  <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
+                  <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </div>
+
+              <!-- Top Social Area -->
+              <div class="top-social-area">
+                <a href="#" class="fa fa-facebook" aria-hidden="true"></a>
+                <a href="#" class="fa fa-twitter" aria-hidden="true"></a>
+                <a href="#" class="fa fa-pinterest" aria-hidden="true"></a>
+                <a href="#" class="fa fa-instagram" aria-hidden="true"></a>
+                <a href="#" class="fa fa-youtube-play" aria-hidden="true"></a>
+              </div>
+
+            </div>
+            <!-- Nav End -->
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(static/images/bg-img/2.jpg);">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title mt-70">Sign Up</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="home"><i class="fa fa-home"></i>Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Sign Up</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+
+  <section>
+  
+  <div class="limiter">
+  <div class="container-login100">
+  <div class="wrap-login100">
+  <div class="login100-pic js-tilt" data-tilt>
+  <img src="{{url_for('static', filename='nw/images/img-01.png')}}" alt="IMG">
+  </div>
+  {% if message%}
+  <div class="alert alert-danger">
+	{{message}}
+  </div>
+  {%endif%}
+  <form method="post" enctype="multipart/form-data" class="login100-form validate-form">
+  <span class="login100-form-title">
+  Create an account
+  </span>
+  
+  <div class="wrap-input100 validate-input" data-validate = "Fullname is reauired">
+  <input class="input100" type="text" name="fullname" value="{{request.form.fullname}}" placeholder="Fullname">
+  <span class="focus-input100"></span>
+  <span class="symbol-input100">
+  <i class="fa fa-tv" aria-hidden="true"></i>
+  </span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate = "Username is required">
+  <input class="input100" type="text" name="username" value="{{request.form.username}}" placeholder="Username">
+  <span class="focus-input100"></span>
+  <span class="symbol-input100">
+  <i class="fa fa-user" aria-hidden="true"></i>
+  </span>
+  </div>
+  
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+  <input class="input100" type="password" name="password" value="{{request.form.password}}" placeholder="Password">
+  <span class="focus-input100"></span>
+  <span class="symbol-input100">
+  <i class="fa fa-lock" aria-hidden="true"></i>
+  </span>
+  </div>
+  
+  <div class="container-login100-form-btn">
+  <button class="login100-form-btn">
+  Create
+  </button>
+  </div>
+  
+  <div class="text-center p-t-12">
+  <span class="txt1">
+  Already have an account?
+  </span>
+  </div>
+  <div class="text-center p-t-12">
+  <a class="txt2" href="signin">
+  Sign In
+  <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+  </a>
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  
+
+            <!-- Single Widget Area -->
+            <div class="single-widget-area tags-widget mb-80">
+              <h5 class="widget-title">Popular Tags</h5>
+
+              <ul class="tags-list">
+                <li><a href="#">Creative</a></li>
+                <li><a href="#">Unique</a></li>
+                <li><a href="#">audio</a></li>
+                <li><a href="#">Episodes</a></li>
+                <li><a href="#">ideas</a></li>
+                <li><a href="#">Podcasts</a></li>
+                <li><a href="#">Wordpress Template</a></li>
+                <li><a href="#">startup</a></li>
+                <li><a href="#">video</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Blog Area End ***** -->
+
+  <!-- ***** Newsletter Area Start ***** -->
+  <section class="poca-newsletter-area bg-img bg-overlay pt-50 jarallax" style="background-image: url(static/images/bg-img/15.jpg);">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Newsletter Content -->
+        <div class="col-12 col-lg-6">
+          <div class="newsletter-content mb-50">
+            <h2>Sign Up To Newsletter</h2>
+            <h6>Subscribe to receive info on our latest news and episodes</h6>
+          </div>
+        </div>
+        <!-- Newsletter Form -->
+        <div class="col-12 col-lg-6">
+          <div class="newsletter-form mb-50">
+            <form action="#" method="post">
+              <input type="email" name="nl-email" class="form-control" placeholder="Your Email">
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Newsletter Area End ***** -->
+
+  <!-- ***** Footer Area Start ***** -->
+  <footer class="footer-area section-padding-80-0">
+    <div class="container">
+      <div class="row">
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-footer-widget mb-80">
+            <!-- Widget Title -->
+            <h4 class="widget-title">About Us</h4>
+
+            <p>It is a long established fact that a reader will be distracted by the readable content.</p>
+            <div class="copywrite-content">
+              <p>&copy; 
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-footer-widget mb-80">
+            <!-- Widget Title -->
+            <h4 class="widget-title">Categories</h4>
+
+            <!-- Catagories Nav -->
+            <nav>
+              <ul class="catagories-nav">
+                <li><a href="#">Entrepreneurship</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Tech</a></li>
+                <li><a href="#">Tutorials</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-footer-widget mb-80">
+            <!-- Widget Title -->
+            <h4 class="widget-title">Follow Us</h4>
+            <!-- Social Info -->
+            <div class="footer-social-info">
+              <a href="#" class="facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+              <a href="#" class="instagram" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="youtube" data-toggle="tooltip" data-placement="top" title="YouTube"><i class="fa fa-youtube-play"></i></a>
+            </div>
+            <!-- App Download Button -->
+            <div class="app-download-button mt-30">
+              <a href="#"><img src="{{url_for('static', filename='images/core-img/app-store.png')}}" alt=""></a>
+              <a href="#"><img src="{{url_for('static', filename='images/core-img/google-play.png')}}" alt=""></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  <!-- ***** Footer Area End ***** -->
+
+  <!-- ******* All JS ******* -->
+  <!-- jQuery js -->
+  <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+  <!-- Popper js -->
+  <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+  <!-- Bootstrap js -->
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <!-- All js -->
+  <script src="{{url_for('static', filename='js/poca.bundle.js')}}"></script>
+  <!-- Active js -->
+  <script src="{{url_for('static', filename='js/default-assets/active.js')}}"></script>
+  <!--===============================================================================================-->	
+  <script src="{{url_for('static', filename='nw/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+  <!--===============================================================================================-->
+  <script src="{{url_for('static', filename='nw/vendor/bootstrap/js/popper.js')}}"></script>
+  <script src="{{url_for('static', filename='nw/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+  <!--===============================================================================================-->
+  <script src="{{url_for('static', filename='nw/vendor/select2/select2.min.js')}}"></script>
+  <!--===============================================================================================-->
+  <script src="{{url_for('static', filename='nw/vendor/tilt/tilt.jquery.min.js')}}"></script>
+  <script >
+  $('.js-tilt').tilt({
+  scale: 1.1
+  })
+  </script>
+  <!--===============================================================================================-->
+  <script src="{{url_for('static', filename='nw/js/main.js')}}"></script>
+  
+
+</body>
+
+</html>
