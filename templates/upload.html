@@ -130,7 +130,7 @@
   <p>✔Successfully uploaded {{message}}</p>
   {% endif%}
   </p>
-  <form method="post" enctype="multipart/form-data">
+  <form autocomplete="off" method="post" enctype="multipart/form-data">
 	<div class="container">
 		<label for="song_file" style="position:relative; left:20%; text-align:center; border:1px solid #8080ff; padding:10px; color:white; background-color:#8080ff; width:60%;" >Choose A Song <i class="fa fa-music"></i></label>
 		<input type="text" class="form-control add-forms" placeholder="Artist Name" name="artist_name" value="{{request.form.artist_name}}" required/>
@@ -158,9 +158,6 @@
         <div class="col-12 col-sm-6 col-lg-3">
           <div class="single-footer-widget mb-80">
             <!-- Widget Title -->
-            <h4 class="widget-title">About Us</h4>
-
-            <p>It is a long established fact that a reader will be distracted by the readable content.</p>
             <div class="copywrite-content">
               <p>&copy; 
 

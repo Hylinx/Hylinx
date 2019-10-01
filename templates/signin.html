@@ -156,13 +156,13 @@
   	{% endif%}
   	</div>
   	{%endif%}
-  <form method="post" enctype="multipart/form-data" class="login100-form validate-form">
+  <form autocomplete="off" method="post" enctype="multipart/form-data" class="login100-form validate-form">
   <span class="login100-form-title">
   Member Login
   </span>
   
   <div class="wrap-input100 validate-input" data-validate = "Username is required">
-  <input class="input100" type="text" name="username" value="{{request.form.username}}" placeholder="Username">
+  <input  class="input100" type="text" name="username" value="{{request.form.username}}" placeholder="Username">
   <span class="focus-input100"></span>
   <span class="symbol-input100">
   <i class="fa fa-user" aria-hidden="true"></i>
@@ -170,7 +170,7 @@
   </div>
   
   <div class="wrap-input100 validate-input" data-validate = "Password is required">
-  <input class="input100" type="password" name="password" value="{{request.form.password}}" placeholder="Password">
+  <input  class="input100" type="password" name="password" value="{{request.form.password}}" placeholder="Password">
   <span class="focus-input100"></span>
   <span class="symbol-input100">
   <i class="fa fa-lock" aria-hidden="true"></i>
@@ -261,9 +261,6 @@
         <div class="col-12 col-sm-6 col-lg-3">
           <div class="single-footer-widget mb-80">
             <!-- Widget Title -->
-            <h4 class="widget-title">About Us</h4>
-
-            <p>It is a long established fact that a reader will be distracted by the readable content.</p>
             <div class="copywrite-content">
               <p>&copy; 
 
