@@ -9,6 +9,7 @@ import random
 import hashlib
 import re
 
+
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["UPLOAD_FOLDER"] = "static/uploads/"
@@ -26,9 +27,9 @@ def matched(pattern, string):
     if num >= 1:
         return True
     return False
-    
-    
-    
+
+
+
 def todays_date():
     month = ""
     date_now = date.today()
@@ -57,7 +58,7 @@ def todays_date():
     elif date_now.month == 12:
         month = "December"
     return f"{month} {date_now.day}, {date_now.year}"
-    
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -85,8 +86,8 @@ class User(db.Model):
 
     def __repr__(self):
         return f"{self.fullname}"
-        
-@app.route('/home')      
+
+@app.route('/home')
 @app.route("/")
 def index():
     audios = Song.query.all()
@@ -101,7 +102,7 @@ def before_request():
     if 'user' in session:
         g.user = session['user']
 
-    
+
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     message = None
@@ -112,7 +113,7 @@ def upload():
             if file and allowed_file(file.filename):
                 try:
                     filename = secure_filename(file.filename)
-                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) 
+                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                     song = MP3File(os.path.join(app.config["UPLOAD_FOLDER"], filename))
                     song.song = request.form['song_title']
                     song.artist = request.form['artist_name']
@@ -195,7 +196,7 @@ def view(song_id):
     others = User.query.filter_by(username=usr).first()
     if(len(others.songs) > 0):
         random.shuffle(others.songs)
-        others = others.songs  
+        others = others.songs
     song = Song.query.filter_by(id=song_id).first()
     return render_template("view.html",lat_songs=lat_songs,others=others,song=song)
 
@@ -206,3 +207,14 @@ def about():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# # A very simple Flask Hello World app for you to get started with...
+
+# from flask import Flask
+
+# app = Flask(__name__)
+
+# @app.route('/')
+# def hello_world():
+#     return 'Hello from Flask!'
+
