@@ -1,4 +1,3 @@
 flask
-eye3d
 flask_sqlalchemy
 mp3_tagger
