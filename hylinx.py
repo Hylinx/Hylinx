@@ -12,7 +12,7 @@ import re
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
-app.config["UPLOAD_FOLDER"] = "static/uploads/"
+app.config["UPLOAD_FOLDER"] = "/home/Learn/Tony/static/uploads"
 app.config["SECRET_KEY"] = os.urandom(24)
 db = SQLAlchemy(app)
 ALLOWED_EXTENSIONS = set(['mp3', 'wav','ogg'])
@@ -120,12 +120,13 @@ def upload():
                     comments = request.form['comments']
                     audio_type = request.form['type'].lower()
                     user = User.query.filter_by(username=session['user']).first()
+                except Exception as e:
+                    return render_template("upload.html",  new_audios=new_audios,message=str(e))
+                else:
                     db_song = Song(user_id=user.id,audio_type=audio_type,comments=comments,artist_name=song.artist, file_name=filename, song_title=song.song)
                     db.session.add(db_song)
                     db.session.commit()
                     return render_template("upload.html", new_audios=new_audios, message=file.filename)
-                except:
-                    return render_template("upload.html",  new_audios=new_audios)
 
         return render_template("upload.html", message=None, new_audios=new_audios)
     return redirect(url_for('sign_in'))
