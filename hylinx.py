@@ -12,7 +12,10 @@ import re
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
-app.config["UPLOAD_FOLDER"] = "/home/Learn/Tony/static/uploads"
+#for development
+app.config["UPLOAD_FOLDER"] = "static/uploads/"
+#for deployment
+#app.config["UPLOAD_FOLDER"] = "/home/Learn/Tony/static/uploads"
 app.config["SECRET_KEY"] = os.urandom(24)
 db = SQLAlchemy(app)
 ALLOWED_EXTENSIONS = set(['mp3', 'wav','ogg'])
@@ -99,6 +102,7 @@ def index():
 @app.before_request
 def before_request():
     g.user = None
+    
     if 'user' in session:
         g.user = session['user']
 
@@ -126,9 +130,9 @@ def upload():
                     db_song = Song(user_id=user.id,audio_type=audio_type,comments=comments,artist_name=song.artist, file_name=filename, song_title=song.song)
                     db.session.add(db_song)
                     db.session.commit()
-                    return render_template("upload.html", new_audios=new_audios, message=file.filename)
-
-        return render_template("upload.html", message=None, new_audios=new_audios)
+                    message = "✔️Successfully Uploaded {}".format(file.filename)
+                    return render_template("upload.html", new_audios=new_audios, message=message)
+        return render_template("upload.html", message=message, new_audios=new_audios)
     return redirect(url_for('sign_in'))
 
 
@@ -190,17 +194,20 @@ def search():
 
 @app.route("/view/<string:song_id>")
 def view(song_id):
-    song_id = int(song_id)
-    lat_songs = Song.query.all()
-    usr = Song.query.filter_by(id=song_id).first()
-    usr = usr.user.username
-    others = User.query.filter_by(username=usr).first()
+    try:
+        song_id = int(song_id)
+        lat_songs = Song.query.all()
+        usr = Song.query.get(song_id)
+        usr = usr.user.username
+        song = Song.query.get(song_id)
+        others = User.query.filter_by(username=usr).first()
+    except:
+        return redirect(url_for('index'))
     if(len(others.songs) > 0):
         random.shuffle(others.songs)
         others = others.songs
-    song = Song.query.filter_by(id=song_id).first()
-    return render_template("view.html",lat_songs=lat_songs,others=others,song=song)
-
+        return render_template("view.html",lat_songs=lat_songs,others=others,song=song)
+    return redirect(url_for('index'))
 @app.route('/about')
 def about():
     return render_template("about.html")
