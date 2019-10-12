@@ -13,9 +13,9 @@ import re
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 #for development
-app.config["UPLOAD_FOLDER"] = "static/uploads/"
+#app.config["UPLOAD_FOLDER"] = "static/uploads/"
 #for deployment
-#app.config["UPLOAD_FOLDER"] = "/home/Learn/Tony/static/uploads"
+app.config["UPLOAD_FOLDER"] = "/home/Learn/Tony/static/uploads"
 app.config["SECRET_KEY"] = os.urandom(24)
 db = SQLAlchemy(app)
 ALLOWED_EXTENSIONS = set(['mp3', 'wav','ogg'])
